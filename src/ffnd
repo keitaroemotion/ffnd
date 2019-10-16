@@ -29,8 +29,8 @@ for path, subdirs, files in os.walk(dir_path):
         abs_path = os.path.join(path, name)
         if re.search(pattern, abs_path):
             print "|{} | {}".format(
-                       get_last_modified_time(abs_path),
-                       abs_path
-                   )
+                      get_last_modified_time(abs_path),
+                      abs_path
+                  )
 
 print
