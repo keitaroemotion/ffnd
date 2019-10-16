@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-chmod +x src/greppu
-cp src/greppu /usr/local/bin
+chmod +x src/ffnd
+cp -v src/ffnd /usr/local/bin
