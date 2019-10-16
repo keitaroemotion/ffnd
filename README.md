@@ -2,17 +2,17 @@
 
 looks for the target file and the last updated datetime of those
 
-## installation
+## Installation
 
 ```
 ./scripts/installer
 ```
 
-## requirement
+## Requirement
 
 python2.7.x installed
 
-## usage
+## Usage
 
 
 ```
