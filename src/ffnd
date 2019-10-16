@@ -8,7 +8,7 @@ import sys
 args = sys.argv[1:]
 target_dir = [x for x in args if os.path.exists(x)]
 
-pattern  = ".+".join([x for x in args if not os.path.exists(x)])
+pattern  = ".+".join([x.replace(".", "\.") for x in args if not os.path.exists(x)])
 dir_path = os.getcwd() if len(target_dir) == 0 else target_dir[0]
 
 print("matches: {}".format(pattern))
