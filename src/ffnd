@@ -1,1 +1,36 @@
 #!/usr/bin/env python
+
+from datetime import datetime
+import os
+import re
+import sys
+
+args = sys.argv[1:]
+target_dir = [x for x in args if os.path.exists(x)]
+
+pattern  = ".+".join([x for x in args if not os.path.exists(x)])
+dir_path = os.getcwd() if len(target_dir) == 0 else target_dir[0]
+
+print("matches: {}".format(pattern))
+print
+print("|last modified time  | file")
+
+def get_last_modified_time(abs_path):
+    return str(
+               datetime.fromtimestamp(
+                   os.path.getmtime(
+                       abs_path
+                   )
+               )
+           )[0:-7]
+
+for path, subdirs, files in os.walk(dir_path):
+    for name in files:
+        abs_path = os.path.join(path, name)
+        if re.search(pattern, abs_path):
+            print "|{} | {}".format(
+                       get_last_modified_time(abs_path),
+                       abs_path
+                   )
+
+print
